@@ -81,9 +81,9 @@ $class = $input[$rand_keys];
 $figure = new $class;
 
 $figure->area();
-$myfigure[] = (array) $figure;
+$myFigure[] = (array) $figure;
 
-$json = json_encode($myfigure);
+$json = json_encode($myFigure);
 echo "Saved object is ", $json ,"\n";
 
 
