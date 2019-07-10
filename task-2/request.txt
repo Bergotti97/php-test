@@ -1,0 +1,1 @@
+SELECT authors.id,authors.name FROM authors join books_authors ON authors.id=books_authors.author_id join books ON books.id=books_authors.book_id HAVING(count(books.id)<7);
