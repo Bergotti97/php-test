@@ -1,4 +1,5 @@
 <?php
+
 interface IFigure
 {
     public function area();
@@ -6,9 +7,8 @@ interface IFigure
 
 class Rectangle implements IFigure
 {
-
-    protected $length;
-    protected $width;
+    public $length;
+    public $width;
 
     function __construct() 
     {
@@ -31,7 +31,7 @@ class Rectangle implements IFigure
 
 class Circle implements IFigure
 {
-    protected $radius;
+    public $radius;
 
     function __construct() 
     {
@@ -52,8 +52,8 @@ class Circle implements IFigure
 
 class Pyramid implements IFigure
 {
-    protected $base;
-    protected $edge;
+    public $base;
+    public $edge;
 
     function __construct()
     {
@@ -71,14 +71,59 @@ class Pyramid implements IFigure
             echo "Figures area is  ", $area,"\n";
         }         
     }
-
-
 }
-$input = array("Rectangle", "Circle", "Pyramid");
-$rand_keys = array_rand($input, 1);
-echo "Figure is a ", $input[$rand_keys], "\n";
-$class = $input[$rand_keys];
-$figure = new $class;
+
+echo "Select Class\n";
+echo "1.Rectangle\n";
+echo "2.Circle\n";
+echo "3.Pyramid\n";
+echo "4.Random Class\n";
+$SelClass = readline("SelClass = "); 
+
+if ($SelClass == 1) {
+    $figure = new Rectangle;
+    echo "Figure is a Rectangle\n";
+    echo "Please specify size of your figure (empty set for random)\n";
+    $myLength = readline("Length = ");
+    $myWidth = readline("Width = ");
+    if (!strlen($myLength) == 0) {
+        $figure->length = $myLength;
+    }
+    if (!strlen($myWidth) == 0) {
+        $figure->width = $myWidth;
+    }
+} elseif ($SelClass == 2) {
+    $figure = new Circle;
+    echo "Figure is a Circle\n";
+    echo "Please specify size of your figure (empty set for random)\n";
+    $myRadius = readline("Radius = ");
+    if (!strlen($myRadius) == 0) {
+        $figure->radius = $myRadius;
+    }
+} elseif ($SelClass == 3) {
+    $figure = new Pyramid;
+    echo "Figure is a Pyramid\n"; 
+    echo "Please specify size of your figure (empty set for random)\n";
+    $myBase = readline("Base = ");
+    $myEdge = readline("Edge = ");
+    if (!strlen($myBase) == 0) {
+        $figure->base = $myBase;
+    }
+    if (!strlen($myEdge) == 0) {
+        $figure->edge = $myEdge;
+    }
+} elseif ($SelClass == 4) {
+    $input = array("Rectangle", "Circle", "Pyramid");
+    $rand_keys = array_rand($input, 1);
+    echo "Figure is a ", $input[$rand_keys], "\n";
+    $class = $input[$rand_keys];
+    $figure = new $class;
+} elseif ($SelClass > 4 or $SelClass < 1) {
+    echo "Error: Class not selected";
+    return;
+}
+
+
 
 $figure->area();
 $myFigure[] = (array) $figure;
@@ -86,12 +131,9 @@ $myFigure[] = (array) $figure;
 $json = json_encode($myFigure);
 echo "Saved object is ", $json ,"\n";
 
-
 $savedJson = file_get_contents('Figure.txt');
 $savedObj = json_decode($savedJson);
 echo "Loaded object is ", $savedJson;
 
-
 $obj = json_decode($json);
 file_put_contents('Figure.txt', $json, LOCK_EX);
-?>
