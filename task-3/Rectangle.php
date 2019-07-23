@@ -23,9 +23,9 @@ class Rectangle implements IFigure, JsonSerializable
     /**
      * Свойства класса
      *  
-     * @param int $_length Длина прямоугольника
-     * @param int $_width Ширина прямоугольника
-     * @param int $_area Площадь прямоугольника
+     * @var int $_length Длина прямоугольника
+     * @var int $_width Ширина прямоугольника
+     * @var int $_area Площадь прямоугольника
      */ 
     private $_length;
     private $_width;

@@ -23,9 +23,9 @@ class Pyramid implements IFigure, JsonSerializable
     /** 
      * Свойства класса 
      * 
-     * @param int $_base Ширина основания пирамиды
-     * @param int $_edge Длина бокового ребра пирамиды
-     * @param int $_area Площадь пирамиды
+     * @var int $_base Ширина основания пирамиды
+     * @var int $_edge Длина бокового ребра пирамиды
+     * @var int $_area Площадь пирамиды
      */ 
     private $_base;
     private $_edge;

@@ -23,8 +23,8 @@ class Circle implements IFigure, JsonSerializable
     /**
      * Свойства класса
      * 
-     * @param int $_radius Радиус круга
-     * @param int $_area Площадь круга
+     * @var int $_radius Радиус круга
+     * @var int $_area Площадь круга
      */
     private $_radius;
     private $_area;
