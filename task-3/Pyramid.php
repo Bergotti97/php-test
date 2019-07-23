@@ -14,6 +14,7 @@ class Pyramid implements IFigure, JsonSerializable
         if (is_nan($this->_area)) {
             $this->_area = 0;
         }
+        
         return $this->_area;        
     }
 
@@ -51,6 +52,7 @@ class Pyramid implements IFigure, JsonSerializable
         $Pyramid = new Pyramid;
         $Pyramid->setBase(random_int(10, 30));
         $Pyramid->setEdge(random_int(10, 30));
+
         return $Pyramid;
     }
 
@@ -60,6 +62,7 @@ class Pyramid implements IFigure, JsonSerializable
         $pyramid->setBase($savedPyr->{"base"});
         $pyramid->setEdge($savedPyr->{"edge"});
         $pyramid->setArea($savedPyr->{"area"});
+
         return $pyramid;
     }
 }

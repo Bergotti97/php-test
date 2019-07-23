@@ -8,6 +8,7 @@ class Circle implements IFigure, JsonSerializable
     public function area()
     {
         $this->_area = pi()* pow($this->_radius, 2);
+
         return $this->_area;
     }
 
@@ -38,6 +39,7 @@ class Circle implements IFigure, JsonSerializable
     {
         $Circle = new Circle;
         $Circle->setRadius(random_int(10, 30));
+
         return $Circle;
     }
 
@@ -46,6 +48,7 @@ class Circle implements IFigure, JsonSerializable
         $circle = new Circle;
         $circle->setRadius($savedCir->{"radius"});
         $circle->setArea($savedCir->{"area"});
+        
         return $circle;
     }
 }

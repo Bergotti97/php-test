@@ -8,7 +8,8 @@ class Rectangle implements IFigure, JsonSerializable
  
     public function area() 
     {
-        $this->_area = $this->_length * $this->_width;   
+        $this->_area = $this->_length * $this->_width;  
+
         return $this->_area;
     }
 
@@ -46,6 +47,7 @@ class Rectangle implements IFigure, JsonSerializable
         $Rectangle = new Rectangle;
         $Rectangle->setLength(random_int(10, 30));
         $Rectangle->setWidth(random_int(10, 30));
+
         return $Rectangle;
     }
 
@@ -55,6 +57,7 @@ class Rectangle implements IFigure, JsonSerializable
         $rectangle->setLength($savedRec->{"length"});
         $rectangle->setWidth($savedRec->{"width"});
         $rectangle->setArea($savedRec->{"area"});
+        
         return $rectangle;
     }
 }
