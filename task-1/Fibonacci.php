@@ -1,5 +1,22 @@
 <?php
+/**
+ * PHP version 7.3.6
+ * 
+ * @category Mathematics
+ * @package  Task-1
+ * @author   Display Name <gishmg97@gmail.com>
+ * @license  https://www.php.net/license/index.php PHP Public License
+ * @link     https://github.com/Bergotti97/php-test/blob/master/task-1/Fibonacci.php 
+ */
 
+
+/** 
+ * Функция для подсчета чисел Фибоначчи 
+ * 
+ * @param int $n Количество чисел Фибоначчи 
+ * 
+ * @return int
+ */
 function fibonacci($n) 
 {
     if ($n == 0) {

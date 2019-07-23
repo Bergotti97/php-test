@@ -1,11 +1,34 @@
 <?php
+/**
+ * PHP version 7.3.6
+ * 
+ * @category Figures
+ * @package  Task-3
+ * @author   Display Name <gishmg97@gmail.com>
+ * @license  https://www.php.net/license/index.php PHP Public License
+ * @link     https://github.com/Bergotti97/php-test/blob/master/task-3/Rectangle.php 
+ */
 
+/**
+ * Class Rectangle
+ * 
+ * @category Figure
+ * @package  Task-3
+ * @author   Display Name <gishmg97@gmail.com>
+ * @license  https://www.php.net/license/index.php PHP Public License
+ * @link     https://github.com/Bergotti97/php-test/blob/master/task-3/Rectangle.php 
+ */
 class Rectangle implements IFigure, JsonSerializable
 {
     private $_length;
     private $_width;
     private $_area;
- 
+     
+    /**
+     * Функция для посчета площади пирамиды
+     * 
+     * @return null
+     */
     public function area() 
     {
         $this->_area = $this->_length * $this->_width;  
@@ -13,6 +36,11 @@ class Rectangle implements IFigure, JsonSerializable
         return $this->_area;
     }
 
+    /**
+     * Функция для сериализации в JSON
+     * 
+     * @return string 
+     */
     public function jsonSerialize()
     {
         return [
@@ -22,26 +50,57 @@ class Rectangle implements IFigure, JsonSerializable
         ];
     }
 
+    /**
+     * Функция для изменения свойства(длины)
+     * 
+     * @param int $length Новое значения длины прямугольника
+     *  
+     * @return null
+     */
     public function setLength($length)
     {
         $this->_length = $length;
     }
 
+    /**
+     * Функция для изменения свойства(ширины)
+     * 
+     * @param int $width Новое значения ширины прямугольника
+     *  
+     * @return null
+     */
     public function setWidth($width)
     {
         $this->_width = $width;
     }
 
+    /**
+     * Функция для изменения площади прямоугольника
+     * 
+     * @param int $area Новое значения площади
+     * 
+     * @return null
+     */  
     public function setArea($area)
     {
         $this->_area = $area;
     }
 
+    /**
+     * Функция для получения значения площади
+     * 
+     * @return int
+     */     
     public function getArea()
     {
         return $this->_area;
     }
 
+    /**
+     * Генерация прямоугольника со случайными параметрами методом "Обычной Фабрики"
+     * 
+     * @return object
+     */     
     public static function makeFigure()
     {
         $Rectangle = new Rectangle;
@@ -51,6 +110,13 @@ class Rectangle implements IFigure, JsonSerializable
         return $Rectangle;
     }
 
+    /**
+     * Реализация чтения из файла "Rectangle.txt" используя паттерн "Фасад"
+     * 
+     * @param array $savedRec Массив, полученный из файла
+     *
+     * @return object
+     */    
     public static function loadFigure($savedRec)
     {
         $rectangle = new Rectangle;

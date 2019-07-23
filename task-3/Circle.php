@@ -1,10 +1,33 @@
-<?php
+<?php 
+/**
+ * PHP version 7.3.6
+ * 
+ * @category Figures
+ * @package  Task-3
+ * @author   Display Name <gishmg97@gmail.com>
+ * @license  https://www.php.net/license/index.php PHP Public License
+ * @link     https://github.com/Bergotti97/php-test/blob/master/task-3/Circle.php 
+ */
 
+/**
+ * Class Circle
+ * 
+ * @category Figure
+ * @package  Task-3
+ * @author   Display Name <gishmg97@gmail.com>
+ * @license  https://www.php.net/license/index.php PHP Public License
+ * @link     https://github.com/Bergotti97/php-test/blob/master/task-3/Circle.php 
+ */
 class Circle implements IFigure, JsonSerializable
 {
     private $_radius;
     private $_area;
-
+    
+    /**
+     * Функция для посчета площади круга
+     * 
+     * @return int
+     */
     public function area()
     {
         $this->_area = pi()* pow($this->_radius, 2);
@@ -12,6 +35,11 @@ class Circle implements IFigure, JsonSerializable
         return $this->_area;
     }
 
+    /**
+     * Функция для сериализации в JSON
+     * 
+     * @return string 
+     */
     public function jsonSerialize()
     {
         return [
@@ -20,21 +48,45 @@ class Circle implements IFigure, JsonSerializable
         ];
     }
 
+    /**
+     * Функция для изменения свойства(значения радиуса)
+     * 
+     * @param int $radius Новый радиус окружности
+     * 
+     * @return null
+     */
     public function setRadius($radius)
     {
         $this->_radius = $radius;
     }
 
+    /**
+     * Функция для изменения площади круга
+     * 
+     * @param int $area Новое значения площади
+     * 
+     * @return null
+     */
     public function setArea($area)
     {
         $this->_area = $area;
     }
 
+    /**
+     * Функция для получения значения площади
+     * 
+     * @return int
+     */
     public function getArea()
     {
         return $this->_area;
     }
 
+    /**
+     * Генерация круга со случайным радиусом методом "Обычной Фабрики"
+     * 
+     * @return object
+     */
     public static function makeFigure()
     {
         $Circle = new Circle;
@@ -43,6 +95,13 @@ class Circle implements IFigure, JsonSerializable
         return $Circle;
     }
 
+    /**
+     * Реализация чтения из файла "Circle.txt" используя паттерн "Фасад"
+     * 
+     * @param array $savedCir Массив, полученный из файла
+     *
+     * @return object
+     */
     public static function loadFigure($savedCir)
     {
         $circle = new Circle;
