@@ -11,11 +11,7 @@
 
 /**
  * Class Rectangle
- * 
- * @param int $_length Длина прямоугольника
- * @param int $_width Ширина прямоугольника
- * @param int $_area Площадь прямоугольника
- * 
+ *
  * @category Figure
  * @package  Task-3
  * @author   Margaryan Grigor <gishmg97@gmail.com>
@@ -24,6 +20,13 @@
  */
 class Rectangle implements IFigure, JsonSerializable
 {
+    /**
+     * Свойства класса
+     *  
+     * @param int $_length Длина прямоугольника
+     * @param int $_width Ширина прямоугольника
+     * @param int $_area Площадь прямоугольника
+     */ 
     private $_length;
     private $_width;
     private $_area;

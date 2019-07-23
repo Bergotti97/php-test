@@ -12,18 +12,20 @@
 /**
  * Class Circle
  * 
- * @param int $_radius Радиус круга
- * @param int $_area Площадь круга
- * 
  * @category Figure
  * @package  Task-3
  * @author   Margaryan Grigor <gishmg97@gmail.com>
  * @license  https://www.php.net/license/index.php PHP Public License
  * @link     https://github.com/Bergotti97/php-test/blob/master/task-3/Circle.php
  */
-
 class Circle implements IFigure, JsonSerializable
 {
+    /**
+     * Свойства класса
+     * 
+     * @param int $_radius Радиус круга
+     * @param int $_area Площадь круга
+     */
     private $_radius;
     private $_area;
     
