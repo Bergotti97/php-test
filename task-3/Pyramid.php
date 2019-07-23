@@ -59,9 +59,9 @@ class Pyramid implements IFigure, JsonSerializable
     public static function loadFigure($savedPyr)
     {
         $pyramid = new Pyramid;
-        $pyramid->setBase($savedPyr->{"base"});
-        $pyramid->setEdge($savedPyr->{"edge"});
-        $pyramid->setArea($savedPyr->{"area"});
+        $pyramid->setBase($savedPyr["base"]);
+        $pyramid->setEdge($savedPyr["edge"]);
+        $pyramid->setArea($savedPyr["area"]);
 
         return $pyramid;
     }

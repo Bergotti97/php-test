@@ -54,9 +54,9 @@ class Rectangle implements IFigure, JsonSerializable
     public static function loadFigure($savedRec)
     {
         $rectangle = new Rectangle;
-        $rectangle->setLength($savedRec->{"length"});
-        $rectangle->setWidth($savedRec->{"width"});
-        $rectangle->setArea($savedRec->{"area"});
+        $rectangle->setLength($savedRec["length"]);
+        $rectangle->setWidth($savedRec["width"]);
+        $rectangle->setArea($savedRec["area"]);
         
         return $rectangle;
     }

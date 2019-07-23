@@ -46,8 +46,8 @@ class Circle implements IFigure, JsonSerializable
     public static function loadFigure($savedCir)
     {
         $circle = new Circle;
-        $circle->setRadius($savedCir->{"radius"});
-        $circle->setArea($savedCir->{"area"});
+        $circle->setRadius($savedCir["radius"]);
+        $circle->setArea($savedCir["area"]);
         
         return $circle;
     }
