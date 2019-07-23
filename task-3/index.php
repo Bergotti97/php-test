@@ -45,14 +45,9 @@ file_put_contents($input[$rand_keys] . ".txt", $json, LOCK_EX);
 
 //Получение объектов из файлов
 $figures = []; 
-$savedRec = json_decode(file_get_contents('Rectangle.txt'), true);
-$rectangle = Rectangle::loadFigure($savedRec);
-    
-$savedCir = json_decode(file_get_contents('Circle.txt'), true);
-$circle = Circle::loadFigure($savedCir);
-        
-$savedPyr = json_decode(file_get_contents('Pyramid.txt'), true);
-$pyramid = Pyramid::loadFigure($savedPyr);
+$rectangle = Rectangle::loadRectangle();
+$circle = Circle::loadCircle();
+$pyramid = Pyramid::loadPyramid();
    
 //Сортировка объектов по убыванию площади фигуры
 array_push($figures, $rectangle, $circle, $pyramid);

@@ -113,12 +113,12 @@ class Rectangle implements IFigure, JsonSerializable
     /**
      * Реализация чтения из файла "Rectangle.txt" используя паттерн "Фасад"
      * 
-     * @param array $savedRec Массив, полученный из файла
-     *
      * @return object
      */    
-    public static function loadFigure($savedRec)
+    public static function loadRectangle()
     {
+        $savedRec = json_decode(file_get_contents('Rectangle.txt'), true);
+
         $rectangle = new Rectangle;
         $rectangle->setLength($savedRec["length"]);
         $rectangle->setWidth($savedRec["width"]);

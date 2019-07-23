@@ -119,12 +119,12 @@ class Pyramid implements IFigure, JsonSerializable
     /**
      * Реализация чтения из файла "Pyramid.txt" используя паттерн "Фасад"
      * 
-     * @param array $savedPyr Массив, полученный из файла
-     *
      * @return object
      */
-    public static function loadFigure($savedPyr)
+    public static function loadPyramid()
     {
+        $savedPyr = json_decode(file_get_contents('Pyramid.txt'), true);
+        
         $pyramid = new Pyramid;
         $pyramid->setBase($savedPyr["base"]);
         $pyramid->setEdge($savedPyr["edge"]);

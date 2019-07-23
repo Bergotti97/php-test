@@ -97,13 +97,13 @@ class Circle implements IFigure, JsonSerializable
 
     /**
      * Реализация чтения из файла "Circle.txt" используя паттерн "Фасад"
-     * 
-     * @param array $savedCir Массив, полученный из файла
      *
      * @return object
      */
-    public static function loadFigure($savedCir)
+    public static function loadCircle()
     {
+        $savedCir = json_decode(file_get_contents('Circle.txt'), true);
+
         $circle = new Circle;
         $circle->setRadius($savedCir["radius"]);
         $circle->setArea($savedCir["area"]);
