@@ -8,6 +8,7 @@ function fibonacci($n)
         return 1;
     }
     $result = (fibonacci($n-2) + fibonacci($n-1));
+    
     return $result;
 }
 
