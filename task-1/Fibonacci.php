@@ -7,8 +7,8 @@ function fibonacci($n)
     } elseif ($n == 1) {
         return 1;
     }
-    $result = (fibonacci($n-2) + fibonacci($n-1));
-    
+    $result = (fibonacci($n - 2) + fibonacci($n - 1));
+
     return $result;
 }
 
@@ -16,5 +16,5 @@ function fibonacci($n)
 // как для подсчета дальнейших чисел требуется огромное количество времени. 
 $n = 64;
 for ($i = 0; $i <= $n; $i++) { 
-    echo fibonacci($i)."\n";
+    echo fibonacci($i) . "\n";
 }
