@@ -38,7 +38,7 @@ class Circle implements IFigure, JsonSerializable
     /**
      * Функция для сериализации в JSON
      * 
-     * @return string 
+     * @return array 
      */
     public function jsonSerialize()
     {
