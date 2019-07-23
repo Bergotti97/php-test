@@ -12,6 +12,10 @@
 /**
  * Class Pyramid
  * 
+ * @param int $_base Ширина основания пирамиды
+ * @param int $_edge Длина бокового ребра пирамиды
+ * @param int $_area Площадь пирамиды
+ * 
  * @category Figure
  * @package  Task-3
  * @author   Display Name <gishmg97@gmail.com>
@@ -109,23 +113,23 @@ class Pyramid implements IFigure, JsonSerializable
      */   
     public static function makeFigure()
     {
-        $Pyramid = new Pyramid;
-        $Pyramid->setBase(random_int(10, 30));
-        $Pyramid->setEdge(random_int(10, 30));
+        $pyramid = new Pyramid;
+        $pyramid->setBase(random_int(10, 30));
+        $pyramid->setEdge(random_int(10, 30));
 
-        return $Pyramid;
+        return $pyramid;
     }
 
     /**
-     * Реализация чтения из файла используя паттерн "Фасад"
+     * Реализация загрузки из файла используя паттерн "Фасад"
      * 
-     * @param string $Pyramid Название файла
+     * @param string $filename Название файла
      * 
      * @return object
      */
-    public static function load($Pyramid)
+    public static function load($filename)
     {
-        $savedPyr = json_decode(file_get_contents($Pyramid), true);
+        $savedPyr = json_decode(file_get_contents($filename), true);
         
         $pyramid = new Pyramid;
         $pyramid->setBase($savedPyr["base"]);

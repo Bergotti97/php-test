@@ -12,12 +12,16 @@
 /**
  * Class Circle
  * 
+ * @param int $_radius Радиус круга
+ * @param int $_area Площадь круга
+ * 
  * @category Figure
  * @package  Task-3
  * @author   Display Name <gishmg97@gmail.com>
  * @license  https://www.php.net/license/index.php PHP Public License
- * @link     https://github.com/Bergotti97/php-test/blob/master/task-3/Circle.php 
+ * @link     https://github.com/Bergotti97/php-test/blob/master/task-3/Circle.php
  */
+
 class Circle implements IFigure, JsonSerializable
 {
     private $_radius;
@@ -89,22 +93,22 @@ class Circle implements IFigure, JsonSerializable
      */
     public static function makeFigure()
     {
-        $Circle = new Circle;
-        $Circle->setRadius(random_int(10, 30));
+        $circle = new Circle;
+        $circle->setRadius(random_int(10, 30));
 
-        return $Circle;
+        return $circle;
     }
 
     /**
-     * Реализация чтения из файла используя паттерн "Фасад"
+     * Реализация загрузки из файла используя паттерн "Фасад"
      *
-     * @param string $Circle Название файла
+     * @param string $filename Название файла
      * 
      * @return object
      */
-    public static function load($Circle)
+    public static function load($filename)
     {
-        $savedCir = json_decode(file_get_contents($Circle), true);
+        $savedCir = json_decode(file_get_contents($filename), true);
 
         $circle = new Circle;
         $circle->setRadius($savedCir["radius"]);

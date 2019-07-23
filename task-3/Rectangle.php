@@ -12,6 +12,10 @@
 /**
  * Class Rectangle
  * 
+ * @param int $_length Длина прямоугольника
+ * @param int $_width Ширина прямоугольника
+ * @param int $_area Площадь прямоугольника
+ * 
  * @category Figure
  * @package  Task-3
  * @author   Display Name <gishmg97@gmail.com>
@@ -103,23 +107,23 @@ class Rectangle implements IFigure, JsonSerializable
      */     
     public static function makeFigure()
     {
-        $Rectangle = new Rectangle;
-        $Rectangle->setLength(random_int(10, 30));
-        $Rectangle->setWidth(random_int(10, 30));
+        $rectangle = new Rectangle;
+        $rectangle->setLength(random_int(10, 30));
+        $rectangle->setWidth(random_int(10, 30));
 
-        return $Rectangle;
+        return $rectangle;
     }
 
     /**
-     * Реализация чтения из файла используя паттерн "Фасад"
+     * Реализация загрузки из файла используя паттерн "Фасад"
      * 
-     * @param string $Rectangle Название файла
+     * @param string $filename Название файла
      * 
      * @return object
      */    
-    public static function load($Rectangle)
+    public static function load($filename)
     {
-        $savedRec = json_decode(file_get_contents($Rectangle), true);
+        $savedRec = json_decode(file_get_contents($filename), true);
 
         $rectangle = new Rectangle;
         $rectangle->setLength($savedRec["length"]);
