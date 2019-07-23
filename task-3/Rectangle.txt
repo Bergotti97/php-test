@@ -1,1 +1,1 @@
-{"length":28,"width":23,"area":644}
+{"length":23,"width":20,"area":460}
