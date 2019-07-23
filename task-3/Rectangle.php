@@ -16,9 +16,9 @@ class Rectangle implements IFigure, JsonSerializable
     public function jsonSerialize()
     {
         return [
-        'length' => $this->_length,
-        'width' => $this->_width,
-        'area' => $this->area()
+            'length' => $this->_length,
+            'width' => $this->_width,
+            'area' => $this->area()
         ];
     }
 
