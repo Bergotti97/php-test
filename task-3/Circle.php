@@ -4,7 +4,7 @@
  * 
  * @category Figures
  * @package  Task-3
- * @author   Display Name <gishmg97@gmail.com>
+ * @author   Margaryan Grigor <gishmg97@gmail.com>
  * @license  https://www.php.net/license/index.php PHP Public License
  * @link     https://github.com/Bergotti97/php-test/blob/master/task-3/Circle.php 
  */
@@ -17,7 +17,7 @@
  * 
  * @category Figure
  * @package  Task-3
- * @author   Display Name <gishmg97@gmail.com>
+ * @author   Margaryan Grigor <gishmg97@gmail.com>
  * @license  https://www.php.net/license/index.php PHP Public License
  * @link     https://github.com/Bergotti97/php-test/blob/master/task-3/Circle.php
  */
