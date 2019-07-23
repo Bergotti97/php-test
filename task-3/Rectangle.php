@@ -27,7 +27,7 @@ class Rectangle implements IFigure, JsonSerializable
     /**
      * Функция для посчета площади пирамиды
      * 
-     * @return null
+     * @return int
      */
     public function area() 
     {
@@ -55,7 +55,7 @@ class Rectangle implements IFigure, JsonSerializable
      * 
      * @param int $length Новое значения длины прямугольника
      *  
-     * @return null
+     * @return void
      */
     public function setLength($length)
     {
@@ -67,7 +67,7 @@ class Rectangle implements IFigure, JsonSerializable
      * 
      * @param int $width Новое значения ширины прямугольника
      *  
-     * @return null
+     * @return void
      */
     public function setWidth($width)
     {
@@ -79,7 +79,7 @@ class Rectangle implements IFigure, JsonSerializable
      * 
      * @param int $area Новое значения площади
      * 
-     * @return null
+     * @return void
      */  
     public function setArea($area)
     {
@@ -111,13 +111,15 @@ class Rectangle implements IFigure, JsonSerializable
     }
 
     /**
-     * Реализация чтения из файла "Rectangle.txt" используя паттерн "Фасад"
+     * Реализация чтения из файла используя паттерн "Фасад"
+     * 
+     * @param string $Rectangle Название файла
      * 
      * @return object
      */    
-    public static function loadRectangle()
+    public static function load($Rectangle)
     {
-        $savedRec = json_decode(file_get_contents('Rectangle.txt'), true);
+        $savedRec = json_decode(file_get_contents($Rectangle), true);
 
         $rectangle = new Rectangle;
         $rectangle->setLength($savedRec["length"]);

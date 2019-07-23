@@ -23,7 +23,7 @@ interface IFigure
     /**
      * Функция для подсчет площади
      * 
-     * @return null
+     * @return void
      */
     public function area();
 
@@ -32,7 +32,7 @@ interface IFigure
      * 
      * @param int $area Новое значение площади
      * 
-     * @return null
+     * @return void
      */
     public function setArea($area);
     

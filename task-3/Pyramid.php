@@ -61,7 +61,7 @@ class Pyramid implements IFigure, JsonSerializable
      * 
      * @param int $base Новая ширина базы пирамиды
      *  
-     * @return null
+     * @return void
      */
     public function setBase($base)
     {
@@ -73,7 +73,7 @@ class Pyramid implements IFigure, JsonSerializable
      * 
      * @param int $edge Новая длина ребра пирамиды
      *  
-     * @return null
+     * @return void
      */
     public function setEdge($edge)
     {
@@ -85,7 +85,7 @@ class Pyramid implements IFigure, JsonSerializable
      * 
      * @param int $area Новое значения площади
      * 
-     * @return null
+     * @return void
      */   
     public function setArea($area)
     {
@@ -117,13 +117,15 @@ class Pyramid implements IFigure, JsonSerializable
     }
 
     /**
-     * Реализация чтения из файла "Pyramid.txt" используя паттерн "Фасад"
+     * Реализация чтения из файла используя паттерн "Фасад"
+     * 
+     * @param string $Pyramid Название файла
      * 
      * @return object
      */
-    public static function loadPyramid()
+    public static function load($Pyramid)
     {
-        $savedPyr = json_decode(file_get_contents('Pyramid.txt'), true);
+        $savedPyr = json_decode(file_get_contents($Pyramid), true);
         
         $pyramid = new Pyramid;
         $pyramid->setBase($savedPyr["base"]);

@@ -20,7 +20,7 @@ require 'Pyramid.php';
  * @param object $a Первый объект для сравнения
  * @param object $b Второй объект для сравнения
  * 
- * @return array
+ * @return int
  */
 function cmp($a, $b)
 {
@@ -45,9 +45,9 @@ file_put_contents($input[$rand_keys] . ".txt", $json, LOCK_EX);
 
 //Получение объектов из файлов
 $figures = []; 
-$rectangle = Rectangle::loadRectangle();
-$circle = Circle::loadCircle();
-$pyramid = Pyramid::loadPyramid();
+$rectangle = Rectangle::load("Rectangle.txt");
+$circle = Circle::load("Circle.txt");
+$pyramid = Pyramid::load("Pyramid.txt");
    
 //Сортировка объектов по убыванию площади фигуры
 array_push($figures, $rectangle, $circle, $pyramid);

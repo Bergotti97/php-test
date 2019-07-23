@@ -53,7 +53,7 @@ class Circle implements IFigure, JsonSerializable
      * 
      * @param int $radius Новый радиус окружности
      * 
-     * @return null
+     * @return void
      */
     public function setRadius($radius)
     {
@@ -65,7 +65,7 @@ class Circle implements IFigure, JsonSerializable
      * 
      * @param int $area Новое значения площади
      * 
-     * @return null
+     * @return void
      */
     public function setArea($area)
     {
@@ -96,13 +96,15 @@ class Circle implements IFigure, JsonSerializable
     }
 
     /**
-     * Реализация чтения из файла "Circle.txt" используя паттерн "Фасад"
+     * Реализация чтения из файла используя паттерн "Фасад"
      *
+     * @param string $Circle Название файла
+     * 
      * @return object
      */
-    public static function loadCircle()
+    public static function load($Circle)
     {
-        $savedCir = json_decode(file_get_contents('Circle.txt'), true);
+        $savedCir = json_decode(file_get_contents($Circle), true);
 
         $circle = new Circle;
         $circle->setRadius($savedCir["radius"]);
