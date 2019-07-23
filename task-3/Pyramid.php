@@ -13,11 +13,7 @@ class Pyramid implements IFigure, JsonSerializable
 
         if (is_nan($this->_area)) {
             $this->_area = 0;
-            echo "Figures area is  ", $this->_area,"\n";
-        } else {
-            echo "Figures area is  ", $this->_area,"\n";
-        } 
-
+        }
         return $this->_area;        
     }
 

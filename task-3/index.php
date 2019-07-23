@@ -19,9 +19,10 @@ function cmp($a, $b)
     //Генерация случайных объектов классов
     $input = array("Rectangle", "Circle", "Pyramid");
     $rand_keys = array_rand($input, 1);
-    echo "Figure is a ", $input[$rand_keys], "\n";
-   
+
     $figure = $input[$rand_keys]::makeFigure();
+    echo "Figure is a ", $input[$rand_keys], "\n";
+    echo "Figures area is  ", $figure->area() ,"\n";
     $json = json_encode($figure);
     file_put_contents($input[$rand_keys].".txt", $json, LOCK_EX);
 
@@ -30,17 +31,12 @@ function cmp($a, $b)
     $savedRec = json_decode(file_get_contents('Rectangle.txt'));
     $rectangle = Rectangle::loadFigure($savedRec);
     
-
     $savedCir = json_decode(file_get_contents('Circle.txt'));
     $circle = Circle::loadFigure($savedCir);
-    
-    
+        
     $savedPyr = json_decode(file_get_contents('Pyramid.txt'));
     $pyramid = Pyramid::loadFigure($savedPyr);
-   
-    
-
-
+     
     //Сортировка объектов по убыванию площади фигуры
     array_push($figures, $rectangle, $circle, $pyramid);
     usort($figures, "cmp");

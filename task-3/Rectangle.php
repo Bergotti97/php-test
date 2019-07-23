@@ -9,8 +9,6 @@ class Rectangle implements IFigure, JsonSerializable
     public function area() 
     {
         $this->_area = $this->_length * $this->_width;   
-        echo "Figures area is  ", $this->_area,"\n";
-
         return $this->_area;
     }
 

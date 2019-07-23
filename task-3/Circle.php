@@ -8,8 +8,6 @@ class Circle implements IFigure, JsonSerializable
     public function area()
     {
         $this->_area = pi()* pow($this->_radius, 2);
-        echo "Figures area is  ", $this->_area,"\n";
-
         return $this->_area;
     }
 
