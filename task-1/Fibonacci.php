@@ -7,7 +7,7 @@ function fibonacci($n)
     } elseif ($n == 1) {
         return 1;
     }
-    $result = (fibonacci($n-2) + fibonacci($n-1) );
+    $result = (fibonacci($n-2) + fibonacci($n-1));
     return $result;
 }
 
