@@ -132,7 +132,17 @@ class Pyramid implements IFigure, JsonSerializable
      */
     public static function load($filename)
     {
-        $savedPyr = json_decode(file_get_contents($filename), true);
+        if (file_exists($filename)) {
+            $savedPyr = json_decode(file_get_contents($filename), true);
+        } else {
+            $defaultPyr = new Pyramid;
+            $defaultPyr->setBase(0);
+            $defaultPyr->setEdge(0);
+            $json = json_encode($defaultPyr);
+
+            file_put_contents("Pyramid.txt", $json);
+            $savedPyr = json_decode(file_get_contents($filename), true);
+        } 
         
         $pyramid = new Pyramid;
         $pyramid->setBase($savedPyr["base"]);

@@ -109,8 +109,17 @@ class Circle implements IFigure, JsonSerializable
      * @return object
      */
     public static function load($filename)
-    {
-        $savedCir = json_decode(file_get_contents($filename), true);
+    {   
+        if (file_exists($filename)) {
+            $savedCir = json_decode(file_get_contents($filename), true);
+        } else {
+            $defaultCir = new Circle;
+            $defaultCir->setRadius(0);
+            $json = json_encode($defaultCir);
+
+            file_put_contents("Circle.txt", $json);
+            $savedCir = json_decode(file_get_contents($filename), true);
+        } 
 
         $circle = new Circle;
         $circle->setRadius($savedCir["radius"]);

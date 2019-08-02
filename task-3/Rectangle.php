@@ -126,7 +126,17 @@ class Rectangle implements IFigure, JsonSerializable
      */    
     public static function load($filename)
     {
-        $savedRec = json_decode(file_get_contents($filename), true);
+        if (file_exists($filename)) {
+            $savedRec = json_decode(file_get_contents($filename), true);
+        } else {
+            $defaultRec = new Rectangle;
+            $defaultRec->setLength(0);
+            $defaultRec->setWidth(0);
+            $json = json_encode($defaultRec);
+
+            file_put_contents("Rectangle.txt", $json);
+            $savedRec = json_decode(file_get_contents($filename), true);
+        } 
 
         $rectangle = new Rectangle;
         $rectangle->setLength($savedRec["length"]);
