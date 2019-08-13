@@ -9,6 +9,8 @@
  * @link     https://github.com/Bergotti97/php-test/blob/master/task-3/IFigure.php 
  */
 
+namespace classes;
+
 /**
  * PHP version 7.3.6
  * 
@@ -26,20 +28,4 @@ interface IFigure
      * @return void
      */
     public function area();
-
-    /**
-     * Функция для изменения свойства(площади)
-     * 
-     * @param int $area Новое значение площади
-     * 
-     * @return void
-     */
-    public function setArea($area);
-    
-    /**
-     * Функия для получения значения площади
-     * 
-     * @return int
-     */
-    public function getArea();
 }
