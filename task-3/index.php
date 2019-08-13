@@ -14,23 +14,6 @@ use classes\Circle;
 use classes\Triangle;
 
 /**
- * Функия для сортировки
- * 
- * @param object $obj1 Первый объект для сравнения
- * @param object $obj2 Второй объект для сравнения
- * 
- * @return int
- */
-function sortByArea($obj1, $obj2)
-{
-    if ($obj1->area == $obj2->area) {
-        return 0;
-    } else {
-        return ($obj1->area > $obj2->area) ? -1 : 1;
-    }    
-}
-
-/**
  * Автозагрузщик классов
  * 
  * @param string $class Название класса
@@ -46,6 +29,23 @@ function autoloder($class)
     }
 }
 spl_autoload_register('autoloder');
+
+/**
+ * Функия для сортировки
+ * 
+ * @param object $obj1 Первый объект для сравнения
+ * @param object $obj2 Второй объект для сравнения
+ * 
+ * @return int
+ */
+function sortByArea($obj1, $obj2)
+{
+    if ($obj1->area == $obj2->area) {
+        return 0;
+    } else {
+        return ($obj1->area > $obj2->area) ? -1 : 1;
+    }    
+}
 
 //Генерация случайных объектов классов
 $rectangle = new Rectangle(
